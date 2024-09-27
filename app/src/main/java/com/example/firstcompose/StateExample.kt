@@ -27,6 +27,10 @@ fun NotificationScreen(){
 
     //State full composable .
     //As one state is defined in this function
+
+    //Data Flow happens in unidirectional
+    //It will pass to the two child functions(notificationCounter and messagebar)
+    //Top to down
     var counter: MutableState<Int> = rememberSaveable{mutableStateOf(0)}
     Column(verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -41,6 +45,8 @@ fun NotificationScreen(){
 fun NotificationCounter(count: Int, increment: () -> Int) {
     //Stateless composable .
     //As No state is defined in this function.
+
+    //While Event flow happens from down to top
 
     Column(verticalArrangement = Arrangement.Center) {
         Text(text = "Total Notification sent is ${count}")
