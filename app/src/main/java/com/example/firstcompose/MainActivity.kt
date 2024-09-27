@@ -21,9 +21,12 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
+            //previewItem()
+            NotificationScreen()
         }
     }
 }
+/*
 
 @Preview
 @Composable
@@ -63,3 +66,4 @@ fun sayhello2(name: String = "jashwantttt") {
     Text(text = "Hellooooo $name")
 }
 
+*/

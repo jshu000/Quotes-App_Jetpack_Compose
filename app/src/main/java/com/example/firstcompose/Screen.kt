@@ -1,13 +1,12 @@
 package com.example.firstcompose
 
-import android.icu.text.CaseMap.Title
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.verticalScroll
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Card
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -18,12 +17,12 @@ import androidx.compose.ui.unit.dp
 
 @Preview(heightDp = 500)
 @Composable
-fun previewBookItem(){
-    Column (modifier = Modifier.verticalScroll(rememberScrollState())){
-        getCategoryList().map { item ->
-            BlogCategory(item.imgid,  item.name, item.subtitle)
+fun previewItem(){
+    LazyColumn(content = {
+        items(getCategoryList()){item ->
+            BlogCategory(imgid = item.imgid, name = item.name, subtitle = item.subtitle)
         }
-    }
+    })
 
 }
 
@@ -50,6 +49,35 @@ data class Category(val imgid: Int,val name: String,val subtitle:String){
 }
 fun getCategoryList(): MutableList<Category> {
     val list= mutableListOf<Category>()
+    list.add(Category( R.drawable.man,  "Jashwant", "Software"))
+    list.add(Category( R.drawable.man,  "Jashwant2", "Software"))
+    list.add(Category( R.drawable.man,  "Jashwant3", "Software"))
+    list.add(Category( R.drawable.man,  "Jashwant11", "Software"))
+    list.add(Category( R.drawable.man,  "Jashwant22", "Software"))
+    list.add(Category( R.drawable.man,  "Jashwant33", "Software"))
+    list.add(Category( R.drawable.man,  "Jashwant111", "Software"))
+    list.add(Category( R.drawable.man,  "Jashwant222", "Software"))
+    list.add(Category( R.drawable.man,  "Jashwant333", "Software"))
+
+    list.add(Category( R.drawable.man,  "Jashwant", "Software"))
+    list.add(Category( R.drawable.man,  "Jashwant2", "Software"))
+    list.add(Category( R.drawable.man,  "Jashwant3", "Software"))
+    list.add(Category( R.drawable.man,  "Jashwant11", "Software"))
+    list.add(Category( R.drawable.man,  "Jashwant22", "Software"))
+    list.add(Category( R.drawable.man,  "Jashwant33", "Software"))
+    list.add(Category( R.drawable.man,  "Jashwant111", "Software"))
+    list.add(Category( R.drawable.man,  "Jashwant222", "Software"))
+    list.add(Category( R.drawable.man,  "Jashwant333", "Software"))
+    list.add(Category( R.drawable.man,  "Jashwant", "Software"))
+    list.add(Category( R.drawable.man,  "Jashwant2", "Software"))
+    list.add(Category( R.drawable.man,  "Jashwant3", "Software"))
+    list.add(Category( R.drawable.man,  "Jashwant11", "Software"))
+    list.add(Category( R.drawable.man,  "Jashwant22", "Software"))
+    list.add(Category( R.drawable.man,  "Jashwant33", "Software"))
+    list.add(Category( R.drawable.man,  "Jashwant111", "Software"))
+    list.add(Category( R.drawable.man,  "Jashwant222", "Software"))
+    list.add(Category( R.drawable.man,  "Jashwant333", "Software"))
+
     list.add(Category( R.drawable.man,  "Jashwant", "Software"))
     list.add(Category( R.drawable.man,  "Jashwant2", "Software"))
     list.add(Category( R.drawable.man,  "Jashwant3", "Software"))
