@@ -24,6 +24,9 @@ import androidx.compose.ui.unit.dp
 @Preview
 @Composable
 fun NotificationScreen(){
+
+    //State full composable .
+    //As one state is defined in this function
     var counter: MutableState<Int> = rememberSaveable{mutableStateOf(0)}
     Column(verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -36,6 +39,8 @@ fun NotificationScreen(){
 
 @Composable
 fun NotificationCounter(count: Int, increment: () -> Int) {
+    //Stateless composable .
+    //As No state is defined in this function.
 
     Column(verticalArrangement = Arrangement.Center) {
         Text(text = "Total Notification sent is ${count}")
