@@ -21,49 +21,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            //previewItem()
-            NotificationScreen()
+            
         }
     }
 }
-/*
-
-@Preview
-@Composable
-private fun Previewfunction(){
-    Column {
-        ListViewItem(R.drawable.man,"Jashwant","Software Developer")
-        ListViewItem(R.drawable.man,"Jashwant","Software Developer")
-        ListViewItem(R.drawable.man,"Jashwant","Software Developer")
-        ListViewItem(R.drawable.man,"Jashwant","Software Developer")
-    }
-}
-
-@Composable
-fun ListViewItem(imgid :Int,name :String, role: String) {
-    Row(Modifier.padding(8.dp)) {
-        Image(
-            painter = painterResource(imgid),
-            contentDescription = "Dummy pic",
-            Modifier.size(40.dp)
-        )
-        Column {
-            Text(text = name)
-            Text(text = role)
-        }
-    }
-}
-
-@Preview(showBackground = true, name = "preview")
-@Composable
-fun sayhello(name: String = "jashwant") {
-    Text(text = "Hellooooo $name")
-}
-
-@Preview(showBackground = true, name = "preview2")
-@Composable
-fun sayhello2(name: String = "jashwantttt") {
-    Text(text = "Hellooooo $name")
-}
-
-*/
