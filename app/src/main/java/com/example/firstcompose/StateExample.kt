@@ -1,6 +1,5 @@
 package com.example.firstcompose
 
-import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -16,7 +15,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -26,23 +24,22 @@ import androidx.compose.ui.unit.dp
 @Preview
 @Composable
 fun NotificationScreen(){
+    var counter: MutableState<Int> = rememberSaveable{mutableStateOf(0)}
     Column(verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier.fillMaxSize(1f)) {
 
-        NotificationCounter();
-        MessageBar()
+        NotificationCounter(counter.value, { counter.value++ });
+        MessageBar(counter.value)
     }
 }
 
 @Composable
-fun NotificationCounter() {
-    var counter: MutableState<Int> = rememberSaveable{mutableStateOf(0)}
+fun NotificationCounter(count: Int, increment: () -> Int) {
+
     Column(verticalArrangement = Arrangement.Center) {
-        Text(text = "Total Notification sent is ${counter.value}")
-        Button(onClick = {
-            counter.value++
-            Log.d("jashwant", "NotificationCounter: Button Clicked")
+        Text(text = "Total Notification sent is ${count}")
+        Button(onClick = {increment()
         }) {
             Text(text = "Send Notification")
         }
@@ -50,7 +47,7 @@ fun NotificationCounter() {
 }
 
 @Composable
-fun MessageBar() {
+fun MessageBar(count: Int) {
     Card(
         elevation = CardDefaults.cardElevation(4.dp)
     ) {
@@ -63,7 +60,7 @@ fun MessageBar() {
                 contentDescription = "",
                 Modifier.padding(4.dp)
             )
-            Text(text = "Messages sent so far - 10")
+            Text(text = "Messages sent so far - $count")
         }
     }
 }
