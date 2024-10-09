@@ -16,7 +16,7 @@ import com.example.firstcompose.models.Quote
 
 
 @Composable
-fun QuoteList(data: Array<Quote?>, onClick: ()-> Unit){
+fun QuoteList(data: Array<Quote?>, onClick: (quote:Quote)-> Unit){
     /*Column(modifier = Modifier.fillMaxHeight(1f).fillMaxHeight()) {
         Text(
             text = "Quote App",
@@ -27,9 +27,7 @@ fun QuoteList(data: Array<Quote?>, onClick: ()-> Unit){
         LazyColumn(content = {
             items(data){
                 if (it != null) {
-                    QuoteListItem(quote = it){
-                        onClick()
-                    }
+                    QuoteListItem(quote = it , onClick)
                 }
             }
         })

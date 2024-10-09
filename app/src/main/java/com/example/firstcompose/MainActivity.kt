@@ -20,6 +20,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.firstcompose.screens.QuoteDetail
 import com.example.firstcompose.screens.QuoteListItem
 import com.example.firstcompose.screens.QuoteListScreen
 import kotlinx.coroutines.CoroutineScope
@@ -47,8 +48,13 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun App(){
     if(DataManager.isDataLoaded.value){
-        QuoteListScreen(data = DataManager.data) {
-            
+        if(DataManager.currentPage.value== Pages.LISTING){
+            QuoteListScreen(data = DataManager.data) {
+                DataManager.switchPages(it)
+            }
+        }
+        else{
+            DataManager.currentQuote?.let { QuoteDetail(quote = it) }
         }
     }
     else {
@@ -61,5 +67,9 @@ fun App(){
             CircularProgressIndicator()
         }
     }
+}
 
+enum class Pages{
+    LISTING,
+    DETAIL
 }

@@ -15,7 +15,7 @@ import androidx.compose.ui.unit.dp
 import com.example.firstcompose.models.Quote
 
 @Composable
-fun QuoteListScreen(data:Array<Quote?>,onClick:()-> Unit) {
+fun QuoteListScreen(data:Array<Quote?>,onClick:(quote:Quote)-> Unit) {
     Column(modifier = Modifier
         .fillMaxHeight(1f)
         .fillMaxHeight()) {
@@ -27,8 +27,6 @@ fun QuoteListScreen(data:Array<Quote?>,onClick:()-> Unit) {
                 .fillMaxWidth(1f),
             textAlign = TextAlign.Center,
         )
-        QuoteList(data = data) {
-            onClick
-        }
+        QuoteList(data = data, onClick)
     }
 }
