@@ -32,7 +32,6 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         //DataManager.loadAssetFromFile(this)     Running on Main thread so its better to use coroutines
         CoroutineScope(Dispatchers.IO).launch {
-            delay(10000)
             DataManager.loadAssetFromFile(applicationContext)
 
             //Data load is happening on IO thread.
