@@ -72,7 +72,7 @@ fun QuoteDetail(quote: Quote) {
                 Text(
                     text = quote.author,
                     //style = MaterialTheme.typography.body1,
-                    fontWeight = FontWeight.Thin,
+                    fontWeight = FontWeight.Bold,
                     modifier = Modifier.padding(top = 4.dp)
                 )
             }

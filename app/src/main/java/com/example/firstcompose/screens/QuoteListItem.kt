@@ -61,7 +61,7 @@ fun QuoteListItem(quote: Quote, onClick: (quote:Quote) ->Unit) {
                     .height(1.dp))
                 Text(text = quote.author,
                     style = MaterialTheme.typography.bodyMedium,
-                    fontWeight = FontWeight.Thin,
+                    fontWeight = FontWeight.Bold,
                     modifier = Modifier.padding(top=4.dp))
 
 
