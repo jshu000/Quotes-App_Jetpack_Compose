@@ -46,11 +46,11 @@ fun App2() {
 
 @Composable
 fun Counter(value: Int) {
-    LaunchedEffect(key1 = value) {
+    val state = rememberUpdatedState(newValue = value)
+    LaunchedEffect(key1 = Unit) {
         delay(5000)    // Assuming this is an heavy operation . So execution of this recommended for 1 time only.
-                               // delay will get called everytime when the value is getting changed.
-                               // Not a good way to code
-        Log.d("Jashwant", "Counter: -  ${value.toString()}")
+                               // delay will get called once and state is updated.
+        Log.d("Jashwant", "Counter: -  ${state.value.toString()}")
     }
     Text(text = value.toString())
 }
