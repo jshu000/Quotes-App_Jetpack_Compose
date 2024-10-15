@@ -15,6 +15,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberUpdatedState
@@ -32,25 +33,31 @@ class MainActivity2 : ComponentActivity() {
 }
 
 
-@Composable
-fun App2() {
-    var counter = remember { mutableStateOf(0) }
+fun a() {
+    Log.d("Jashwant", "I am A from App")
+}
 
-    LaunchedEffect(Unit) {
-        delay(2000)
-        counter.value = 10
-    }
-
-    Counter(counter.value)
+fun b() {
+    Log.d("Jashwant", "I am B from App")
 }
 
 @Composable
-fun Counter(value: Int) {
-    val state = rememberUpdatedState(newValue = value)
-    LaunchedEffect(key1 = Unit) {
-        delay(5000)    // Assuming this is an heavy operation . So execution of this recommended for 1 time only.
-                               // delay will get called once and state is updated.
-        Log.d("Jashwant", "Counter: -  ${state.value.toString()}")
+fun App2() {
+    var state = remember { mutableStateOf(::a) }
+
+    Button(onClick = { state.value = ::b }) {
+        Text(text = "Click to change state")
     }
-    Text(text = value.toString())
+
+    LandingScreen(state.value)
+}
+
+@Composable
+fun LandingScreen(onTimeout: () -> Unit) {
+    val currentOnTimeout by rememberUpdatedState(onTimeout)
+
+    LaunchedEffect(true) {
+        delay(5000)
+        currentOnTimeout()
+    }
 }
