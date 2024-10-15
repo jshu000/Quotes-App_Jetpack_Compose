@@ -17,6 +17,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import kotlinx.coroutines.delay
@@ -45,9 +46,11 @@ fun App2() {
 
 @Composable
 fun Counter(value: Int) {
-    LaunchedEffect(key1 = Unit) {
+    LaunchedEffect(key1 = value) {
         delay(5000)    // Assuming this is an heavy operation . So execution of this recommended for 1 time only.
-        Log.d("Jashwant", "Counter: -${value.toString()}")
+                               // delay will get called everytime when the value is getting changed.
+                               // Not a good way to code
+        Log.d("Jashwant", "Counter: -  ${value.toString()}")
     }
     Text(text = value.toString())
 }
