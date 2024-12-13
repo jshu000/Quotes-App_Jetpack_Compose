@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.firstcompose"
+    namespace = "com.andha_coder.firstcompose"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.firstcompose"
+        applicationId = "com.andha_coder.firstcompose"
         minSdk = 24
         targetSdk = 34
         versionCode = 1

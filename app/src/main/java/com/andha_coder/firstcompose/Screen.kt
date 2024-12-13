@@ -1,4 +1,4 @@
-package com.example.firstcompose
+package com.andha_coder.firstcompose
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column

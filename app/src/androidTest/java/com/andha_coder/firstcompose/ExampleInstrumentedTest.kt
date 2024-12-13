@@ -1,4 +1,4 @@
-package com.example.firstcompose
+package com.andha_coder.firstcompose
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

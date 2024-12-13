@@ -1,6 +1,5 @@
-package com.example.firstcompose.ui.theme
+package com.andha_coder.firstcompose.ui.theme
 
-import android.app.Activity
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme

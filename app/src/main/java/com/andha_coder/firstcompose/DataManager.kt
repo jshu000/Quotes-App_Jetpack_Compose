@@ -1,8 +1,8 @@
-package com.example.firstcompose
+package com.andha_coder.firstcompose
 
 import android.content.Context
 import androidx.compose.runtime.mutableStateOf
-import com.example.firstcompose.models.Quote
+import com.andha_coder.firstcompose.models.Quote
 import com.google.gson.Gson
 
 object DataManager {

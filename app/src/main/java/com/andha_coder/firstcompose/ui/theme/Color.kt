@@ -1,4 +1,4 @@
-package com.example.firstcompose.ui.theme
+package com.andha_coder.firstcompose.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
