@@ -64,12 +64,12 @@ fun QuoteDetail(quote: Quote) {
                 )
                 Spacer(modifier = Modifier.padding(4.dp))
                 Text(
-                    text = quote.text,
+                    text = quote.text ?: "Text",
                     //style = MaterialTheme.typography.h6,
                     modifier = Modifier.padding(0.dp, 0.dp, 0.dp, 8.dp)
                 )
                 Text(
-                    text = quote.author,
+                    text = quote.author  ?: "Authorr",
                     //style = MaterialTheme.typography.body1,
                     fontWeight = FontWeight.Thin,
                     modifier = Modifier.padding(top = 4.dp)
