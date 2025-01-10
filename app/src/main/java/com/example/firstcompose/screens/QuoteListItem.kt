@@ -51,7 +51,7 @@ fun QuoteListItem(quote: Quote, onClick: (quote:Quote) ->Unit) {
             )
             Spacer(modifier = Modifier.padding(4.dp))
             Column(modifier = Modifier.weight(1f)) {
-                Text(text = quote.text,
+                Text(text = quote.text ?:"Text",
                     style = MaterialTheme.typography.bodyLarge,
                     modifier = Modifier.padding(0.dp,0.dp,0.dp,0.dp)
                 )
@@ -59,7 +59,7 @@ fun QuoteListItem(quote: Quote, onClick: (quote:Quote) ->Unit) {
                     .background(Color(0xFFEEEEEE))
                     .fillMaxWidth(.4f)
                     .height(1.dp))
-                Text(text = quote.author,
+                Text(text = quote.author ?:"Author",
                     style = MaterialTheme.typography.bodyMedium,
                     fontWeight = FontWeight.Bold,
                     modifier = Modifier.padding(top=4.dp))
