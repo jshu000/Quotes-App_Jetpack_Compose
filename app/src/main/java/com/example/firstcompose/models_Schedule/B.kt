@@ -1,4 +1,4 @@
-package com.example.firstcompose.models2
+package com.example.firstcompose.models_Schedule
 
 data class B(
     val broadcasterId: Int,

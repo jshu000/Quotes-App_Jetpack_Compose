@@ -1,4 +1,4 @@
-package com.example.firstcompose.models2
+package com.example.firstcompose.models_Schedule
 
 data class TemplateFields(
     val access_pass_setup: AccessPassSetup,

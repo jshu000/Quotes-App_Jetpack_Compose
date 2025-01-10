@@ -1,4 +1,4 @@
-package com.example.firstcompose.models2
+package com.example.firstcompose.models_Schedule
 
 data class H(
     val ist_group: String,

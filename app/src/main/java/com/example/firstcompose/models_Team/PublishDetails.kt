@@ -1,4 +1,4 @@
-package com.example.firstcompose.models3
+package com.example.firstcompose.models_Team
 
 data class PublishDetails(
     val environment: String,
