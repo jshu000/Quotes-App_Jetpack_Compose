@@ -33,6 +33,7 @@ fun QuoteDetail(quote: Quote) {
     //Back Button
     BackHandler {
         DataManager.switchPages(null)
+        DataManager.switchPages2(null)
     }
 
     Box(

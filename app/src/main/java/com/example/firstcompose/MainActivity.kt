@@ -23,6 +23,7 @@ import androidx.compose.ui.unit.dp
 import com.example.firstcompose.screens.QuoteDetail
 import com.example.firstcompose.screens.QuoteListItem
 import com.example.firstcompose.screens.QuoteListScreen
+import com.example.firstcompose.screens.ScheduleListScreen
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
@@ -34,6 +35,7 @@ class MainActivity : ComponentActivity() {
         //DataManager.loadAssetFromFile(this)     Running on Main thread so its better to use coroutines
         CoroutineScope(Dispatchers.IO).launch {
             DataManager.loadAssetFromFile(applicationContext)
+            DataManager.loadAssetFromFile2(applicationContext)
 
             //Data load is happening on IO thread.
             //While Data access is happening on Main Thread. How is this possible ?
@@ -47,10 +49,10 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun App(){
-    if(DataManager.isDataLoaded.value){
+    if(DataManager.isDataLoaded.value && DataManager.isDataLoaded2.value){
         if(DataManager.currentPage.value== Pages.LISTING){
-            QuoteListScreen(data = DataManager.data) {
-                DataManager.switchPages(it)
+            ScheduleListScreen(data = DataManager.data2, data5 = DataManager.data5) {
+                DataManager.switchPages2(it)
             }
         }
         else{
