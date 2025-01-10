@@ -2,7 +2,6 @@ package com.example.firstcompose
 
 import android.content.Context
 import androidx.compose.runtime.mutableStateOf
-import com.example.firstcompose.models.Quote
 import com.example.firstcompose.models2.Schedule
 import com.example.firstcompose.models2.ScheduleX
 import com.example.firstcompose.models3.Team
@@ -11,10 +10,6 @@ import com.google.gson.Gson
 
 object DataManager {
 
-    var data = emptyArray<Quote?>()
-    var currentQuote : Quote? = null
-    var currentPage = mutableStateOf(Pages.LISTING)
-    var isDataLoaded = mutableStateOf(false)
 
     var data2 = emptyArray<ScheduleX?>()
     var currentQuote2 : ScheduleX? = null
@@ -22,18 +17,6 @@ object DataManager {
     var data5= emptyArray<Team?>()
     var isDataLoaded2 = mutableStateOf(false)
 
-
-    fun loadAssetFromFile(context: Context) {
-        val inputStream = context.assets.open("quotes.json")
-        val size = inputStream.available()
-        val buffer = ByteArray(size)
-        inputStream.read(buffer)
-        inputStream.close()
-        val json = String(buffer, Charsets.UTF_8)
-        val gson = Gson()
-        data = gson.fromJson(json, Array<Quote?>::class.java)
-        isDataLoaded.value = true
-    }
     fun loadAssetFromFile2(context: Context) {
         val inputStream = context.assets.open("Schedule.json")
         val size = inputStream.available()
@@ -61,21 +44,12 @@ object DataManager {
         isDataLoaded2.value = true
     }
 
-    fun switchPages(quote: Quote?){
-        if(currentPage.value == Pages.LISTING){
-            currentQuote= quote
-            currentPage.value = Pages.DETAIL
-        }else{
-            currentPage.value = Pages.LISTING
-        }
-    }
-
     fun switchPages2(scheduleX: ScheduleX?){
-        if(currentPage.value == Pages.LISTING){
+        if(currentPage2.value == Pages.LISTING){
             currentQuote2= scheduleX
-            currentPage.value = Pages.DETAIL
+            currentPage2.value = Pages.DETAIL
         }else{
-            currentPage.value = Pages.LISTING
+            currentPage2.value = Pages.LISTING
         }
     }
 }

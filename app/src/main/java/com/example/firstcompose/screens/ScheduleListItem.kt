@@ -18,6 +18,10 @@ import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.rotate
@@ -39,6 +43,9 @@ fun ScheduleListItem(
     team2: Team?,
     onClick: (scheduleX: ScheduleX) -> Unit
 ) {
+    val team1 by remember  { mutableStateOf<Team?>(team1) }
+    val team2 by remember  { mutableStateOf<Team?>(team2) }
+    val scheduleX by remember  { mutableStateOf<ScheduleX>(scheduleX) }
     Card(elevation = CardDefaults.cardElevation(4.dp),
         modifier = Modifier
             .clickable { onClick(scheduleX) }

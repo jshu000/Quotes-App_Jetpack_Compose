@@ -20,9 +20,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.firstcompose.screens.QuoteDetail
-import com.example.firstcompose.screens.QuoteListItem
-import com.example.firstcompose.screens.QuoteListScreen
 import com.example.firstcompose.screens.ScheduleListScreen
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -34,7 +31,6 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         //DataManager.loadAssetFromFile(this)     Running on Main thread so its better to use coroutines
         CoroutineScope(Dispatchers.IO).launch {
-            DataManager.loadAssetFromFile(applicationContext)
             DataManager.loadAssetFromFile2(applicationContext)
 
             //Data load is happening on IO thread.
@@ -49,14 +45,14 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun App(){
-    if(DataManager.isDataLoaded.value && DataManager.isDataLoaded2.value){
-        if(DataManager.currentPage.value== Pages.LISTING){
+    if( DataManager.isDataLoaded2.value){
+        if(DataManager.currentPage2.value== Pages.LISTING){
             ScheduleListScreen(data = DataManager.data2, data5 = DataManager.data5) {
                 DataManager.switchPages2(it)
             }
         }
         else{
-            DataManager.currentQuote?.let { QuoteDetail(quote = it) }
+            //DataManager.currentQuote?.let { QuoteDetail(quote = it) }
         }
     }
     else {
