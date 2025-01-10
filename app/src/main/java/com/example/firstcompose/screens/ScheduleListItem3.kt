@@ -37,16 +37,11 @@ import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
 import com.bumptech.glide.integration.compose.GlideImage
 import com.example.firstcompose.models2.ScheduleX
 import com.example.firstcompose.models3.Team
-import java.text.SimpleDateFormat
-import java.time.Instant
-import java.time.ZoneId
-import java.time.format.DateTimeFormatter
-import java.util.Date
 
 
 @OptIn(ExperimentalGlideComposeApi::class)
 @Composable
-fun ScheduleListItem(
+fun ScheduleListItem3(
     scheduleX: ScheduleX,
     team1: Team?,
     team2: Team?,
@@ -69,16 +64,6 @@ fun ScheduleListItem(
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.Center
-            ) {
-                Text(
-                    text = "${convertGameTime(scheduleX.gametime)} | ${getstatus(scheduleX.st)}",
-                    fontSize = 14.sp
-                )
-            }
-            Spacer(modifier = Modifier.height(8.dp))
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceBetween
@@ -113,6 +98,7 @@ fun ScheduleListItem(
                         .padding(8.dp)
                 )
             }
+            Spacer(modifier = Modifier.height(8.dp))
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceBetween
@@ -123,35 +109,16 @@ fun ScheduleListItem(
                     fontWeight = FontWeight.Bold
                 )
                 Text(
+                    text = "${scheduleX.gametime} | ${scheduleX.st}",
+                    fontSize = 14.sp
+                )
+                Text(
                     text = scheduleX.v.ta,
                     fontSize = 18.sp,
                     fontWeight = FontWeight.Bold
                 )
             }
-            Spacer(modifier = Modifier.height(8.dp))
-
-
         }
-    }
-}
-fun convertGameTime(gametime: String): String {
-    val formatter = DateTimeFormatter.ofPattern("EEE MMM d | h:mm a")
-        .withZone(ZoneId.of("UTC"))  // Adjust the zone as needed
-
-    // Parse the ISO 8601 string to Instant
-    val instant = Instant.parse(gametime)
-
-    // Format the instant using the custom pattern
-    return formatter.format(instant)
-}
-fun getstatus(value: Int): String {
-    if(value==1){
-        return "Future Game"
-    }else if(value==2){
-        return "Live Game"
-    }
-    else{
-        return "Past Game"
     }
 }
 
