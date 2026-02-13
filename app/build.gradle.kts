@@ -4,15 +4,16 @@ plugins {
 }
 
 android {
-    namespace = "com.example.firstcompose"
-    compileSdk = 34
+    //com.andha_coder.firstcompose
+    namespace = "com.andha_coder.firstcompose"
+    compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.example.firstcompose"
+        applicationId = "com.andha_coder.firstcompose"
         minSdk = 24
-        targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
+        targetSdk = 36
+        versionCode = 6
+        versionName = "6.0"
 
         vectorDrawables.useSupportLibrary = true
 
@@ -24,7 +25,8 @@ android {
 
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
+            isShrinkResources = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"

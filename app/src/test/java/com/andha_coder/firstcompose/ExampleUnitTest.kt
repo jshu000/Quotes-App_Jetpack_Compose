@@ -1,4 +1,4 @@
-package com.example.firstcompose
+package com.andha_coder.firstcompose
 
 import org.junit.Test
 

@@ -1,4 +1,4 @@
-package com.example.firstcompose.models
+package com.andha_coder.firstcompose.models
 
 data class Quote(
     val author: String,

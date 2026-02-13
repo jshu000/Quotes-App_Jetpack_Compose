@@ -1,4 +1,4 @@
-package com.example.firstcompose.screens
+package com.andha_coder.firstcompose.screens
 
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.Image
@@ -22,10 +22,9 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.firstcompose.DataManager
-import com.example.firstcompose.models.Quote
+import com.andha_coder.firstcompose.DataManager
+import com.andha_coder.firstcompose.models.Quote
 
 @Composable
 fun QuoteDetail(quote: Quote) {
